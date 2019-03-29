@@ -12,6 +12,19 @@ Launch and play LibreELEC/Kodi (rockpro64/rock64 and Debian/Ubuntu host currentl
 
 Run ./install.sh again at any time to update LibreELEC to the latest version.  Your settings/files/add-ons will be retained in $HOME/libreelec-share/
 
+# Service/start on boot
+
+If you want to boot directly into LibreELEC:
+
+- systemctl enable libreelec.service
+
+Notes:
+
+1. When using the autostart service, selecting "Shutdown" from Kodi will exit the container and start X.
+2. Reboot from X or use the desktop icon to return to LibreELEC.
+3. You can also start that service manually at any time to stop your display-manager and switchback to LibreELEC.
+4. Rebooting from Kodi will do a soft-reboot of the system.
+
 # Debugging steps
 
 1. cd to this directory.
