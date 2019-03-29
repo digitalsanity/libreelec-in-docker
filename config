@@ -1,0 +1,44 @@
+# github user/repo and app name
+name="libreelec"
+
+release="detect"
+#release="rockpro64"
+
+# wait for this process to start and then exit before letting the docker container die
+waitproc="bootexec"
+inport=80
+extport=18080
+
+# autodetection needs work!
+if [ $release == "detect" ]; then
+  if (lsmod | grep "midgard_kbase" >/dev/null); then
+    gpu=midgard
+    chipset=rk3399
+    release=rockpro64
+  elif (lsmod | grep "mali" >/dev/null); then
+    gpu=utgard
+    chipset=rk3328
+    release=rock64
+  else
+    gpu=midgard
+    release=rockpro64
+  fi
+  echo "Detect: $release ($chipset/$gpu)"
+fi
+
+
+#apiurl="https://api.github.com/repos/$release_owner/${releasename}_${release}/releases/latest"
+#url=`curl -s "$apiurl" | grep -oP '"browser_download_url": "\K(.*)(?=")'`
+
+# no latest page.  trying to scrape the first valid release.
+#if [ -z "$url" ]; then
+#  apiurl="https://api.github.com/repos/$release_owner/${releasename}_${release}/releases"
+#  url=`curl -s "$apiurl" | grep -oP '"browser_download_url": "\K(.*)(?=")' | grep "${release}_" | head -n5 | sort -r -n | head -n1`
+#fi
+
+# get specific file instead
+# url="https://github.com/mrfixit2001/recalbox_rockpro64/releases/download/190222/recalbox_rockpro64_190222.img.xz"
+
+url="https://test.libreelec.tv/LibreELEC-RK3399.arm-9.1-nightly-20190324-5ccaa74-${release}.img.gz"
+
+echo "Release: $url"

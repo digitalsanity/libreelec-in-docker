@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=LibreELEC (shutdown X)
+Comment=Close your graphical Xorg session and launch libreelec.
+Exec=/usr/local/bin/libreelec-boot-fromx.sh
+Terminal=true
+X-MultipleArgs=false
+Type=Application
+Icon=kodi
+Categories=Games;Media;AudioVideo;Player;Video;

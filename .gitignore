@@ -1,0 +1,16 @@
+rootfs-excluded/
+docker/rootfs/
+img-mount/
+*.img
+*.img.xz
+*.7z
+*.gz
+*.bz
+*.bz2
+*.log
+*.swp
+*.iso
+*.zip
+*.rar
+*.lz
+/.release
