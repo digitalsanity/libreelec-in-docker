@@ -1,6 +1,6 @@
 [Unit]
 Description=LibreELEC-in-docker
-After=network.target auditd.service
+After=network.target docker.service
 Before=display-manager.service
 ConditionPathExists=/usr/local/bin/libreelec-service-exec.sh
 Conflicts=display-manager.service
